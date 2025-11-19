@@ -1,0 +1,10 @@
+postgres:
+  host: testapp-postgresql
+  port: 5456
+  user: testapp_user
+  password: games7890
+  database: testapp_db
+  max-conns: 100
+  min-conns: 5
+  max-idle-conn: 30s
+  max-lifetime-conn: 30m

@@ -1,0 +1,78 @@
+openapi: 3.0.1
+info:
+  title: "Test application"
+  description: "Test application OAS"
+  contact:
+    name: "Test application"
+  version: 1.0.0
+# servers:
+#   - url: "https://music-microservice.mute-project/api/v1"
+#     description: "Base url"
+paths:
+  /hello:
+    get:
+      summary: "Check endpoint"
+      operationId: "helloGet"
+      responses:
+        200:
+          description: "Success"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  answer:
+                    type: string
+        500:
+          description: "Server error"
+
+  /number:
+    summary: "Operation with numbers"
+    get:
+      summary: "Get numbers"
+      operationId: "numberGet"
+      responses:
+        200:
+          description: "Success"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  numbers:
+                    type: array
+                    items:
+                      type: integer
+        500:
+          description: "Server error"
+
+    post:
+      summary: "Add number to database"
+      operationId: "numberPost"
+      requestBody:
+        description: "JSON to server"
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                number:
+                  type: integer
+      responses:
+        200:
+          description: "Success"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  numbers:
+                    type: array
+                    items:
+                      type: integer
+
+        500 :
+          description: "Server error"
+        400:
+          description: "Bad request"
+
